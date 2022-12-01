@@ -7,7 +7,7 @@ function sleep(ms) {
 
 async function writeIntroMsg() {
     for (let i = 0; i < introMsg.length; ++i) {
-        await sleep(500);
+        await sleep(250);
         introTitle.innerText += introMsg[i];
     }
 }
