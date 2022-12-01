@@ -4,10 +4,21 @@
     box-sizing: unset;
 }
 
+@font-face {
+    font-family: Nerko_One;
+    src: url(assets/fonts/Nerko_One/NerkoOne-Regular.ttf);
+}
+
 #intro-container {
     width: fit-content;
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+}
+
+#intro-title {
+    font-family: Nerko_One, serif;
+    font-size: 48px;
+    letter-spacing: 1em;
 }
