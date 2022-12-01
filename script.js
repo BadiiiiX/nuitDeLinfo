@@ -1,9 +1,15 @@
-alert("test");
-
 introMsg = "S I S";
 introTitle = document.getElementById("intro-title");
 
-for (let i = 0; i < introMsg.length; ++i) {
-    introTitle.innerText += introMsg[i];
-    await new Promise(r => setTimeout(r, 2000));
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
+
+async function writeIntroMsg() {
+    for (let i = 0; i < introMsg.length; ++i) {
+        await sleep(500);
+        introTitle.innerText += introMsg[i];
+    }
+}
+
+writeIntroMsg();
