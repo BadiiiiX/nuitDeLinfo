@@ -2,18 +2,20 @@
 
 import {showCapote} from "../assets/utils";
 import LogoCapote   from "./logo/logoCapote.vue";
-import $ from 'jquery'
+import $            from 'jquery'
+import {ref}        from "vue";
 
+const show = ref(true);
 
-$(".modal-close").click(() => {
-  document.getElementById("show").classList.remove("openModal")
-  document.getElementsByTagName("body")[0].classList.remove("ov-di")
-})
+const hideElm = () => {
+  show.value = false;
+}
+
 
 let alreadyopen =false
 window.onscroll = function(e) {
   console.log(document.documentElement.scrollTop)
-  if (document.documentElement.scrollTop > 2500) {
+  if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight) {
 
     if(!alreadyopen){
       $('#show').addClass('openModal')
@@ -99,7 +101,7 @@ $.post("http://lopotico.de/api.php",{"getActivitys": true}, function(data, statu
           n’hésitez pas à consulter le site Questionsexualite.fr ou sida-info-service.org, ou à en discuter par appel
           téléphonique avec le numéro gratuit 0800 840 800.</p>
 
-        <div class="wrap">
+        <div class="wrap" v-if="show">
 
           <div class="overlay" id="show">
             <div class="modal">
@@ -115,7 +117,7 @@ $.post("http://lopotico.de/api.php",{"getActivitys": true}, function(data, statu
 
               </svg>
               <div class="modal-inner">
-                <div class="modal-close" style="color:black">X</div>
+                <div class="modal-close" style="color:black" @click="hideElm">X</div>
                 <h3  style="color:black">Questionnaire</h3>
                 <hr>
                 <div id="modalContent" style="color:black"></div>
