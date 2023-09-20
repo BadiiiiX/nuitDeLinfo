@@ -1,6 +1,14 @@
 # lopoticode
 
-This template should help get you started developing with Vue 3 in Vite.
+Website for aids prevention. 
+
+Made it during the "Night of IT" event.
+
+Check the website here : [lopoticode](https://lopotico.de/)
+
+---
+
+# Vue setup
 
 ## Recommended IDE Setup
 
